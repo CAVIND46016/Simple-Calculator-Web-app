@@ -4,6 +4,7 @@ var res = document.querySelector("#resultArea");
 var clrBtn = document.querySelector("#clrTxt");
 var delBtn = document.querySelector("#del");
 var eqBtn = document.querySelector("#eq");
+var decPoint = document.querySelector("#decp");
 
 var opnSyms = ["+", "-", "*", "/"];
 var symList;
@@ -38,6 +39,11 @@ delBtn.addEventListener("click", function(){
     res.textContent = res.textContent.substring(0, res.textContent.length - 1);
 });
 
+
+decPoint.addEventListener("click", function(){
+	res.textContent += ".";
+});
+
 eqBtn.addEventListener("click", function(){
 	(function(i, j){
 		symList = [];
@@ -47,13 +53,13 @@ eqBtn.addEventListener("click", function(){
 			}
 		}
 
-		if(symList !== []){
-			var operands = res.textContent.split("+");
-			tmpCal = 0;
-			for(j=0; j<operands.length;j++){
-				tmpCal += Number(operands[j]);
+		if(symList.length > 0){
+			try{
+				res.textContent = eval(res.textContent);
 			}
-			res.textContent = tmpCal.toString();
+			catch(e){
+				res.textContent = "Invalid Syntax";
+			}
 		}
 	}(i, j));
 });
