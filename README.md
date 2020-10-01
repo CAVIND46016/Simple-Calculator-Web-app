@@ -1,4 +1,4 @@
-# Simple-Calculator-Web-app
+# Simple-Calculator-Web-app -- An Amazing Project
 
 
 The most simple mathematical operations: addition, subtraction, multiplication, division. This is a simplified version of the online calculator.
